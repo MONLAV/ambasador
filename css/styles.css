@@ -431,13 +431,15 @@ body {
 
 @media screen and (min-width: 768px) and (max-width: 1157px) {
   .container-item {
-    flex-basis: calc((100% - 24px) / 2);
+    flex: 1 1 calc(50% - 20px); /* Два елементи в ряд */
   }
 }
 
 @media screen and (min-width: 1158px) {
   .container-item {
-    flex-basis: calc((100%-72px) / 4);
+    text-align: center; /* Центрування тексту під зображенням */
+  flex: 1 1 calc(25% - 20px); /* Ширина кожного елемента (25% з урахуванням відступів) */
+  max-width: 250px; /* Максимальна ширина елемента */
   }
 }
 
@@ -445,10 +447,48 @@ body {
   display: none;
 } */
 .icon-advantages-img {
-  width: 250px;
-  height: 250px;
-  margin-bottom: 16px;
+ width: 100%; /* Зображення займає всю ширину контейнера */
+  height: auto; /* Пропорційна висота */
+  max-width: 250px; /* Максимальна ширина зображення */
+  max-height: 250px; /* Максимальна висота зображення */
+  object-fit: cover; /* Обрізає зображення, щоб воно відповідало контейнеру */
+  border-radius: 8px; /
 }
+
+.icon-advantages-img-secondary {
+  width: 100%; /* Зображення займає всю ширину контейнера */
+  height: auto; /* Пропорційна висота */
+  max-width: 250px; /* Максимальна ширина зображення */
+  max-height: 250px; /* Максимальна висота зображення */
+  object-fit: cover; /* Обрізає зображення, щоб воно відповідало контейнеру */
+  border-radius: 8px; /* Заокруглення країв зображення */
+}
+
+.list-activities-secondary {
+  display: flex; /* Вирівнювання елементів у ряд */
+  justify-content: space-between; /* Рівномірний розподіл між елементами */
+  gap: 24px; /* Відстань між елементами */
+  flex-wrap: wrap; /* Дозволяє переносити елементи на новий ряд, якщо не вистачає місця */
+}
+
+.container-item-secondary {
+  text-align: center; /* Центрування тексту під зображенням */
+  flex: 1 1 calc(33.33% - 24px); /* Ширина кожного елемента (33.33% з урахуванням відступів) */
+  max-width: 360px; /* Максимальна ширина елемента */
+}
+
+@media (max-width: 768px) {
+  .container-item-secondary {
+    flex: 1 1 calc(50% - 24px); /* Два елементи в ряд */
+  }
+}
+
+@media (max-width: 480px) {
+  .container-item-secondary {
+    flex: 1 1 100%; /* Один елемент у ряд */
+  }
+}
+
 @media screen and (min-width: 1158px) {
   .container-item-icon {
     display: flex;
@@ -459,13 +499,16 @@ body {
     padding-top: 24px;
     padding-bottom: 24px;
     margin-bottom: 8px;
+    border-radius: 8px;
   }
 }
 
 .list-activities {
   display: flex;
+  justify-content: space-between;
   list-style: none;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
 .list-advantages {
@@ -499,7 +542,10 @@ body {
 .works {
   width: calc((100% - 48px) / 3);
 }
+.img-works {
 
+  border-radius: 8px;
+}
 /* Phone */
 .section-woks {
   display: none;
@@ -584,6 +630,8 @@ body {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  margin-bottom: 50px;
+  margin-top: 15px;
 }
 
 @media screen and (min-width: 1158px) {
@@ -1099,7 +1147,7 @@ input::placeholder {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 .projects {
